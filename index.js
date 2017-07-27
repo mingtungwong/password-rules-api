@@ -18,6 +18,12 @@ mongoClient.connect(config.mongodbURL, (error, database) => {
     }
 })
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+})
+
 app.get('/site', (req, res, next) => {
     site.find().toArray((error, results) => res.send(error ? error : results));
 })
