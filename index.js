@@ -33,13 +33,16 @@ app.get('/site', (req, res, next) => {
     site.find().toArray((error, results) => res.send(error ? error : results));
 })
 
+app.get('/search/:query', (req, res, next) => {
+    site.find({site: new RegExp(req.params.query)}).toArray((error, results) => res.send(error ? error: results));
+})
+
 app.get('/site/:siteName', (req, res, next) => {
     site.find({site: req.params.siteName}).toArray((error, results) => res.send(error ? error : results));
 })
 
 app.post('/site', (req, res, next) => {
-    res.send({body: req.body});
-    //site.save(req.body, (error, result) => res.send(error ? error : "Done"));
+    site.save(req.body, (error, result) => res.send(error ? error : "Done"));
 })
 
 app.put('/site/:siteName', (req, res, next) => {
