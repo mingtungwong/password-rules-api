@@ -4,11 +4,12 @@ const config = require('./config.json');
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 1337;
 const options = {
-  server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
-  replset: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } }
+  keepAlive: 1,
+  connectTimeoutMS: 30000
 };
 let db;
 let site;
@@ -37,7 +38,8 @@ app.get('/site/:siteName', (req, res, next) => {
 })
 
 app.post('/site', (req, res, next) => {
-    site.save(req.body, (error, result) => res.send(error ? error : "Done"));
+    res.send({body: req.body});
+    //site.save(req.body, (error, result) => res.send(error ? error : "Done"));
 })
 
 app.put('/site/:siteName', (req, res, next) => {
