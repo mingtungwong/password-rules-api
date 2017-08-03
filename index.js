@@ -6,10 +6,14 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: true}));
 
 const port = process.env.PORT || 3000;
+const options = {
+  server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
+  replset: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } }
+};
 let db;
 let site;
 
-mongoClient.connect(config.mongodbURL, (error, database) => {
+mongoClient.connect(config.mongodbURL, options, (error, database) => {
     if(error) throw error;
     else {
         db = database;
