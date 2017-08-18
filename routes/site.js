@@ -1,4 +1,4 @@
-const router = require('express').Router;
+const router = require('express').Router();
 
 router.get('/site', (req, res, next) => {
     site.find().toArray((error, results) => res.send(error ? error : results));
