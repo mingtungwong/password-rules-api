@@ -1,8 +1,6 @@
 const app = require('express')();
 const mongoClient = require('mongodb').MongoClient;
 const bodyParser = require('body-parser');
-
-const siteRouter = require('./routes/site');
 const validationRouter = require('./routes/validation');
 
 app.use(bodyParser.urlencoded({extended: true}));
