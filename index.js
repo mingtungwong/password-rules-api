@@ -17,7 +17,7 @@ const options = {
 let db;
 let site;
 
-mongoClient.connect(config.mongodbURL, options, (error, database) => {
+mongoClient.connect(process.env.database, options, (error, database) => {
     if(error) throw error;
     else {
         db = database;
