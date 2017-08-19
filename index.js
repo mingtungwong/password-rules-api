@@ -1,6 +1,5 @@
 const app = require('express')();
 const mongoClient = require('mongodb').MongoClient;
-const config = require('./config.json');
 const bodyParser = require('body-parser');
 
 const siteRouter = require('./routes/site');
