@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const site = require('../index.js');
 
 router.get('/site', (req, res, next) => {
     site.find().toArray((error, results) => res.send(error ? error : results));

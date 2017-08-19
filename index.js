@@ -34,6 +34,4 @@ app.use((req, res, next) => {
 app.use(siteRouter);
 app.use(validationRouter);
 
-
-
-
+module.exports = site;
