@@ -7,6 +7,15 @@
   <br><br>
   This is only the current implementation of the API. It is subject to change over time and more routes to be added. It is being worked on in parallel
   to the website and the chrome extension. Links to the other two projects are provided below.
+<p>
+  This API is built using:
+  <br><br>
+  Node.js
+  <br>
+  Express.js
+  <br>
+  MongoDB
+</p>
 </p>
 <h2>Routes</h2>
 <hr>
