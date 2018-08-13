@@ -4,7 +4,7 @@ const router = require('express').Router();
 router.get('/valid/:siteName', (req, res, next) => {
     const session = ping.createSession()
     const pingPromise = new Promise((resolve, reject) => {
-        session.pingHost(req.params.siteName, (error, target) => {
+        session.pingHost(`http://${req.params.siteName}`, (error, target) => {
             if(error) {
                 reject(new Error(error instanceof ping.RequestTimedOutError ? 'Invalid site' : error.toString()))
             } else resolve(target)
